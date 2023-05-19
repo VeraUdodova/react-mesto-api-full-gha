@@ -16,6 +16,11 @@ mongoose.connect(DB);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger);
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.use('/signin', signinValidator, login);
 app.use('/signup', signupValidator, registration);
 app.use('/users', auth, require('./routes/users'));
