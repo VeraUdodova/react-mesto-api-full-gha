@@ -1,0 +1,15 @@
+.profile__info{
+    flex-direction: column;
+    min-height: 120px;
+    gap: 7.5px;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 700px){
+    .profile__info{
+        min-height: 116px;
+        gap: 3px;
+        align-items: center;
+    }
+}

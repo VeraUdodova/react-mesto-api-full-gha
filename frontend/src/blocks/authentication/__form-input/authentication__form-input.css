@@ -1,0 +1,31 @@
+.authentication__form-input{
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0 0 43px 0;
+    width: 358px;
+    height: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    border-bottom: 2px solid #CCCCCC;
+    color: white;
+    padding:0 0 13px;
+    background-color: transparent;
+}
+
+.authentication__form-input:focus{
+    outline: none;
+}
+/*.authentication__form-input:valid{*/
+/*    background-color: red;*/
+/*}*/
+
+.authentication__form-input::placeholder{
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #CCCCCC;
+
+}

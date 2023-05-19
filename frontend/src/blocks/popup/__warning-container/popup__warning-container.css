@@ -1,0 +1,14 @@
+.popup__warning-container{
+    width: 430px;
+    min-height: 181px;
+    padding: 34px 36px 36px;
+}
+
+
+@media screen and (max-width: 700px){
+    .popup__warning-container{
+        width: 282px;
+        padding: 25px 22px 25px;
+        height: 181px;
+    }
+}

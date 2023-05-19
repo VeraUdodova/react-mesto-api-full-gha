@@ -1,0 +1,20 @@
+.profile__photo{
+    height: 120px;
+    width: 120px;
+    border-radius: 100%;
+    margin: 0 30px 0 0;
+    flex-basis: 0;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+@media screen and (max-width: 700px) {
+    .profile__photo{
+        margin: 2px auto 0;
+    }
+}
+
+.profile__photo:hover{
+    opacity: .2;
+}

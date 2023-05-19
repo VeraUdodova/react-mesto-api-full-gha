@@ -1,0 +1,13 @@
+.element__title {
+    margin: 0;
+    padding: 0 20px 0 21px;
+    width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    height: 79px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}

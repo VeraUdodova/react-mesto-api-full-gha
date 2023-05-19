@@ -1,0 +1,7 @@
+.popup__form-input-error{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    border-color: #ff0000;
+}

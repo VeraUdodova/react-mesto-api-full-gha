@@ -1,0 +1,27 @@
+.popup__form-input{
+    padding: 0 0 8px;
+    display: flex;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    width: 358px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+@media screen and (max-width: 950px) {
+    .popup__form-input{
+        max-width: 238px;
+    }
+}
+
+.popup__form-input::placeholder{
+    color: #C4C4C4;
+}
+
+.popup__form-input:focus{
+    outline: none;
+}
