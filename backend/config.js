@@ -5,7 +5,7 @@ const {
   PORT = 3000,
 } = process.env;
 const DB = 'mongodb://127.0.0.1:27017/mestodb1';
-console.log(JWT_SECRET)
+
 module.exports = {
   JWT_SECRET,
   PORT,
