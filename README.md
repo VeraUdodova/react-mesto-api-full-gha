@@ -8,8 +8,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 212.8.247.157
 
-Frontend https://...
+Frontend https://vera-frontend.nomoredomains.rocks
 
-Backend https://...
+Backend https://vera-backend.nomoredomains.rocks
