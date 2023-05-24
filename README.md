@@ -2,14 +2,14 @@
 # react-mesto-api-full
 Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположите в директории `backend/`, а фронтенд - в `frontend/`. 
   
-Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
+Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на VPS.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/VeraUdodova/react-mesto-api-full-gha/
 
 ## Ссылки на проект
 
 IP-адрес 212.8.247.157
 
-Frontend https://vera-frontend.nomoredomains.rocks
+[Frontend](https://vera-frontend.nomoredomains.rocks)
 
-Backend https://vera-backend.nomoredomains.rocks
+[Backend](https://vera-backend.nomoredomains.rocks)
