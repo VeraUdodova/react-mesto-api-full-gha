@@ -14,9 +14,9 @@ const app = express();
 mongoose.connect(DB);
 
 app.use((req, res, next) => {
-  const {origin} = req.headers;
+  const { origin } = req.headers;
   const requestHeaders = req.headers['access-control-request-headers'];
-  const {method} = req;
+  const { method } = req;
 
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
@@ -29,6 +29,7 @@ app.use((req, res, next) => {
   }
 
   next();
+  return true;
 });
 
 app.use(express.json());
