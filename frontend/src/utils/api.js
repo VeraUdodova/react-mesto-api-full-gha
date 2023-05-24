@@ -62,9 +62,8 @@ export class Api {
 }
 
 export const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-59',
+    baseUrl: 'https://vera-backend.nomoredomains.rocks',
     headers: {
-        authorization: '9c0d462a-ebab-4e58-8ffe-ae1eb4d8348f',
         'Content-Type': 'application/json'
     }
 });

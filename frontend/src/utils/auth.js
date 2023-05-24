@@ -16,7 +16,7 @@ class AuthApi extends Api {
 }
 
 const auth = new AuthApi({
-    baseUrl: 'https://auth.nomoreparties.co',
+    baseUrl: 'https://vera-backend.nomoredomains.rocks',
     headers: {
         'Content-Type': 'application/json'
     }
