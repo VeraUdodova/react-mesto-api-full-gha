@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const NotFoundError = require('../errors/not-found-err');
-const { SECRET } = require('../config');
+const { JWT_SECRET } = require('../config');
 
 const {
   setResponse,
@@ -94,7 +94,7 @@ const login = (req, res, next) => {
 
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, SECRET, { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
 
       res
         .cookie('jwt', token, {
@@ -109,7 +109,6 @@ const login = (req, res, next) => {
 };
 
 module.exports = {
-  SECRET,
   getMe,
   registration,
   updateUser,

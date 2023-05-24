@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { SECRET } = require('../controllers/users');
+const { JWT_SECRET } = require('../config');
 const NotAuthorizedError = require('../errors/not-authorized');
 
 const handleAuthError = (next) => {
@@ -19,7 +19,7 @@ module.exports = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, SECRET);
+    payload = jwt.verify(token, JWT_SECRET);
   } catch (err) {
     return handleAuthError(next);
   }
