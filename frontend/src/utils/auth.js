@@ -10,8 +10,7 @@ class AuthApi extends Api {
     }
 
     userInfo(token) {
-        this._headers['Authorization'] = `Bearer ${token}`
-        return this._get('/users/me')
+        return this._get(token, '/users/me')
     }
 }
 
