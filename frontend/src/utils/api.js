@@ -1,3 +1,5 @@
+import { Cookies } from 'react-cookie';
+
 export class Api {
     constructor(options) {
         this._baseUrl = options.baseUrl
@@ -64,6 +66,7 @@ export class Api {
 export const api = new Api({
     baseUrl: 'https://vera-backend.nomoredomains.rocks',
     headers: {
+        'Authorization': `Bearer ${Cookies.get('jwt')}`,
         'Content-Type': 'application/json'
     }
 });
