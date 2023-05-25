@@ -1,5 +1,3 @@
-import Cookies from 'js-cookie';
-
 export class Api {
     constructor(options) {
         this._baseUrl = options.baseUrl
@@ -14,7 +12,9 @@ export class Api {
     }
 
 
-    _get(link) {
+    _get(link, token) {
+        this._headers['Authorization'] = `Bearer ${token}`
+
         return fetch(`${this._baseUrl}${link}`, {
             headers: this._headers,
         })
@@ -34,8 +34,8 @@ export class Api {
         return this._get('/cards')
     }
 
-    getUserInfo() {
-        return this._get('/users/me')
+    getUserInfo(token) {
+        return this._get('/users/me', token)
     }
 
     editUserInfo(body) {
@@ -66,7 +66,6 @@ export class Api {
 export const api = new Api({
     baseUrl: 'https://vera-backend.nomoredomains.rocks',
     headers: {
-        'Authorization': `Bearer ${Cookies.get('jwt')}`,
         'Content-Type': 'application/json'
     }
 });
