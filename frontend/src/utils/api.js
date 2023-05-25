@@ -1,4 +1,4 @@
-import { Cookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 export class Api {
     constructor(options) {
