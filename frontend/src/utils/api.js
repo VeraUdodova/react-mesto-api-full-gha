@@ -12,7 +12,8 @@ export class Api {
     }
 
 
-    _get(link, token) {
+    _get(link) {
+        const token = localStorage.getItem('token')
         this._headers['Authorization'] = `Bearer ${token}`
 
         return fetch(`${this._baseUrl}${link}`, {
@@ -22,6 +23,9 @@ export class Api {
     }
 
     _save(link, method, body = []) {
+        const token = localStorage.getItem('token')
+        this._headers['Authorization'] = `Bearer ${token}`
+
         return fetch(`${this._baseUrl}${link}`, {
             method: method,
             headers: this._headers,
@@ -34,8 +38,8 @@ export class Api {
         return this._get('/cards')
     }
 
-    getUserInfo(token) {
-        return this._get('/users/me', token)
+    getUserInfo() {
+        return this._get('/users/me')
     }
 
     editUserInfo(body) {

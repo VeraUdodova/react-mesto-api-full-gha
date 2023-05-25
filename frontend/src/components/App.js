@@ -126,8 +126,7 @@ function App() {
     }
 
     function loadInitialData() {
-        const token = localStorage.getItem('token')
-        api.getUserInfo(token)
+        api.getUserInfo()
             .then((user) => {
                 setCurrentUser(user)
                 api.getInitialCards().then((_cards) => {
