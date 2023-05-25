@@ -10,7 +10,7 @@ class AuthApi extends Api {
     }
 
     userInfo(token) {
-        return this._get(token, '/users/me')
+        return this._get('/users/me', token)
     }
 }
 
