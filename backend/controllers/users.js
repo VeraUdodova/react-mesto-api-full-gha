@@ -77,7 +77,7 @@ const registration = (req, res, next) => {
       }))
       .catch((err) => {
         if (err.code === 11000) {
-          throw new UserExistError();
+          next(new UserExistError());
         }
 
         next(err);
