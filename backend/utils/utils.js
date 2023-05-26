@@ -43,6 +43,8 @@ const errorHandler = (err, req, res, next) => {
     message = 'Такой пользователь уже есть';
   }
 
+  console.log(message)
+
   res
     .status(statusCode)
     .send({
