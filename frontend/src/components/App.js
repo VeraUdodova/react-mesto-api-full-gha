@@ -110,8 +110,8 @@ function App() {
         const token = localStorage.getItem('token')
         if (token) {
             auth.userInfo(token).then((user) => {
-                if (user.data._id) {
-                    setEmail(user.data.email)
+                if (user._id) {
+                    setEmail(user.email)
                     setLoggedIn(true)
                     loadInitialData()
                     navigate('/', {replace: true})
