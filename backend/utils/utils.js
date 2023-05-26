@@ -21,7 +21,7 @@ const setResponse = (
 
   if (messageKey === 'message' && typeof message !== 'string') {
     result = { [messageKey]: message.join('\n') };
-  } else if (messageKey == null || messageKey === 'data') {
+  } else if (messageKey == null || messageKey === 'data' || messageKey === 'user') {
     result = message;
   } else {
     result = { [messageKey]: message };
