@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const HTTP_200 = 200;
 const HTTP_201 = 201;
 const HTTP_400 = 400;
-const HTTP_409 = 409;
 const HTTP_401 = 401;
 const HTTP_403 = 403;
 const HTTP_404 = 404;
+const HTTP_409 = 409;
 const HTTP_500 = 500;
 
 const setResponse = (
@@ -38,12 +38,7 @@ const errorHandler = (err, req, res, next) => {
   } else if (err instanceof mongoose.Error.CastError) {
     statusCode = HTTP_400;
     message = 'Запрос некорректен';
-  } else if (err.code === 11000) {
-    statusCode = HTTP_409;
-    message = 'Такой пользователь уже есть';
   }
-
-  console.log(message)
 
   res
     .status(statusCode)
