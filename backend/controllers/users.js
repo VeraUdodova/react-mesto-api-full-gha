@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const NotFoundError = require('../errors/not-found-err');
-const UserExistError = require('../errors/user-exist')
+const UserExistError = require('../errors/user-exist');
 const { JWT_SECRET } = require('../config');
 
 const {
@@ -77,7 +77,7 @@ const registration = (req, res, next) => {
       }))
       .catch((err) => {
         if (err.code === 11000) {
-          throw new UserExistError()
+          throw new UserExistError();
         }
 
         next(err);

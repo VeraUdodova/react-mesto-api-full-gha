@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const Card = require('../models/card');
 const NotFoundError = require('../errors/not-found-err');
 const AccessDeniedError = require('../errors/acces-denied');
@@ -20,23 +19,21 @@ module.exports.getCards = (req, res, next) => {
 };
 
 module.exports.createCard = (req, res, next) => {
-  const {name, link} = req.body;
+  const { name, link } = req.body;
 
-  Card.create({name, link, owner: req.user._id})
-    .then((card) => {
-      Card.findById(card._id)
+  Card.create({ name, link, owner: req.user._id })
+    .then((_card) => {
+      Card.findById(_card._id)
         .populate(['owner'])
-        .then(card =>
-        setResponse({
+        .then((card) => setResponse({
           res, messageKey: null, message: card, httpStatus: HTTP_201,
-        })
-      )
+        }));
     })
     .catch(next);
 };
 
 module.exports.deleteCard = (req, res, next) => {
-  const {cardId} = req.params;
+  const { cardId } = req.params;
 
   Card.findById(cardId)
     .then((card) => {
@@ -50,7 +47,7 @@ module.exports.deleteCard = (req, res, next) => {
 
       card.deleteOne()
         .then(() => {
-          setResponse({res, message: 'Карточка удалена'});
+          setResponse({ res, message: 'Карточка удалена' });
         })
         .catch(next);
     })
@@ -58,14 +55,14 @@ module.exports.deleteCard = (req, res, next) => {
 };
 
 const likeChange = (res, req, next, like) => {
-  const {cardId} = req.params;
+  const { cardId } = req.params;
 
   Card.findByIdAndUpdate(
     cardId,
     like
-      ? {$addToSet: {likes: req.user._id}}
-      : {$pull: {likes: req.user._id}},
-    {new: true},
+      ? { $addToSet: { likes: req.user._id } }
+      : { $pull: { likes: req.user._id } },
+    { new: true },
   )
     .populate(['owner', 'likes'])
     .then((card) => {
