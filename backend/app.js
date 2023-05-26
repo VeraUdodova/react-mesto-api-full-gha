@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require('helmet');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -8,12 +9,14 @@ const { cors } = require('./utils/cors');
 const NotFoundError = require('./errors/not-found-err');
 const auth = require('./middlewares/auth');
 const { signupValidator, signinValidator } = require('./validators/users');
-const { DB } = require('./config');
+const { DB, limiter } = require('./config');
 
 const app = express();
 
 mongoose.connect(DB);
 
+app.use(helmet());
+app.use(limiter);
 app.use(cors);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

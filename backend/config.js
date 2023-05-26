@@ -1,3 +1,5 @@
+const rateLimit = require('express-rate-limit');
+
 require('dotenv').config();
 
 const {
@@ -11,7 +13,15 @@ const ALLOWED_CORS = [
   'http://vera-frontend.nomoredomains.rocks',
   'http://localhost:3000',
 ];
+
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
 
 module.exports = {
   JWT_SECRET,
@@ -19,4 +29,5 @@ module.exports = {
   DB,
   ALLOWED_CORS,
   DEFAULT_ALLOWED_METHODS,
+  limiter,
 };
