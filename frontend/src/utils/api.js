@@ -11,11 +11,12 @@ export class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
     }
 
+    _add_token() {
+        this._headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+    }
 
     _get(link) {
-        const token = localStorage.getItem('token')
-        this._headers['Authorization'] = `Bearer ${token}`
-
+        this._add_token();
         return fetch(`${this._baseUrl}${link}`, {
             headers: this._headers,
         })
@@ -23,9 +24,7 @@ export class Api {
     }
 
     _save(link, method, body = []) {
-        const token = localStorage.getItem('token')
-        this._headers['Authorization'] = `Bearer ${token}`
-
+        this._add_token();
         return fetch(`${this._baseUrl}${link}`, {
             method: method,
             headers: this._headers,
@@ -35,7 +34,7 @@ export class Api {
     }
 
     getInitialCards() {
-        return this._get('/cards')
+        return this._get('/cards');
     }
 
     getUserInfo() {

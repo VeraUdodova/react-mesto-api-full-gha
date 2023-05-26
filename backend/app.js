@@ -38,7 +38,7 @@ app.use(requestLogger);
 app.use('/signin', signinValidator, login);
 app.use('/signup', signupValidator, registration);
 app.use('/users', auth, require('./routes/users'));
-app.use('/cards', auth, require('./routes/cards'));
+app.use('/cards', require('./routes/cards'));
 
 app.use('/', (req, res, next) => {
   next(new NotFoundError());
